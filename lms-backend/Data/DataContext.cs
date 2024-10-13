@@ -63,6 +63,20 @@ namespace lms_backend.Data
                 .HasOne(q => q.Quiz)
                 .WithMany(qm => qm.QuizManagements)
                 .HasForeignKey(q => q.QuizId);
+
+
+            // Seeding or Creating Initial Data
+            modelBuilder.Entity<Student>()
+                .HasData(
+                    new Student { Id = 1, FirstName = "Meachelle", LastName = "Dela Torre", Age = 21, Birthdate = new DateOnly(2002,11,05), Email = "meach.delatorre@gmail.com", Username = "metsukyomt", Password = "imjustagirl" },
+                    new Student { Id = 2, FirstName = "Shane", LastName = "Dela Torre", Age = 22, Birthdate = new DateOnly(2002, 05, 26), Email = "shane.delatorre@gmail.com", Username = "iluvmetsu", Password = "metsuandmefrvr"}
+                );
+
+            modelBuilder.Entity<Teacher>()
+                .HasData(
+                    new Teacher { Id = 1, FirstName = "Pepe", LastName = "Tulin", Age = 24, Birthdate = new DateOnly(2000, 1, 1), Email = "pp.tulin@gmail.com", Username = "ilabsofteng", Password = "tulinators"}
+                );
+
         }
 
     }
