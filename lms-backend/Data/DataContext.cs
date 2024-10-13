@@ -34,11 +34,13 @@ namespace lms_backend.Data
             modelBuilder.Entity<Enrollment>()
                 .HasOne(s => s.Student)
                 .WithMany(e => e.Enrollments)
-                .HasForeignKey(s => s.StudentId);
+                .HasForeignKey(s => s.StudentId)
+                .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Enrollment>()
                 .HasOne(c => c.Course)
                 .WithMany(e => e.Enrollments)
-                .HasForeignKey(c => c.CourseId);
+                .HasForeignKey(c => c.CourseId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // Student - Lesson
             modelBuilder.Entity<LessonProgression>()
@@ -46,11 +48,13 @@ namespace lms_backend.Data
             modelBuilder.Entity<LessonProgression>()
                 .HasOne(s => s.Student)
                 .WithMany(lp => lp.LessonProgressions)
-                .HasForeignKey(s => s.StudentId);
+                .HasForeignKey(s => s.StudentId)
+                .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<LessonProgression>()
                 .HasOne(l => l.Lesson)
                 .WithMany(lp => lp.LessonProgressions)
-                .HasForeignKey(l => l.LessonId);
+                .HasForeignKey(l => l.LessonId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // Student - Quiz
             modelBuilder.Entity<QuizManagement>()
@@ -58,11 +62,38 @@ namespace lms_backend.Data
             modelBuilder.Entity<QuizManagement>()
                 .HasOne(s => s.Student)
                 .WithMany(qm => qm.QuizManagement)
-                .HasForeignKey(s => s.StudentId);
+                .HasForeignKey(s => s.StudentId)
+                .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<QuizManagement>()
                 .HasOne(q => q.Quiz)
                 .WithMany(qm => qm.QuizManagements)
-                .HasForeignKey(q => q.QuizId);
+                .HasForeignKey(q => q.QuizId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Post relationship
+            modelBuilder.Entity<Post>()
+                .HasOne(t => t.Teacher)
+                .WithMany(p => p.Posts)
+                .HasForeignKey(t => t.TeacherId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Post>()
+                .HasOne(c => c.Course)
+                .WithMany(p => p.Posts)
+                .HasForeignKey(c => c.CourseId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Comment Forum relationship
+            modelBuilder.Entity<ForumComment>()
+                .HasOne(f => f.Forum)
+                .WithMany(fc => fc.ForumComments)
+                .HasForeignKey(f => f.ForumId)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<ForumComment>()
+                .HasOne(s => s.Student)
+                .WithMany(fc => fc.ForumComments)
+                .HasForeignKey(s => s.StudentId)
+                .OnDelete(DeleteBehavior.Restrict);
 
 
             // Seeding or Creating Initial Data
@@ -74,7 +105,7 @@ namespace lms_backend.Data
 
             modelBuilder.Entity<Teacher>()
                 .HasData(
-                    new Teacher { Id = 1, FirstName = "Pepe", LastName = "Tulin", Age = 24, Birthdate = new DateOnly(2000, 1, 1), Email = "pp.tulin@gmail.com", Username = "ilabsofteng", Password = "tulinators"}
+                    new Teacher { Id = 3, FirstName = "Pepe", LastName = "Tulin", Age = 24, Birthdate = new DateOnly(2000, 1, 1), Email = "pp.tulin@gmail.com", Username = "ilabsofteng", Password = "tulinators"}
                 );
 
         }

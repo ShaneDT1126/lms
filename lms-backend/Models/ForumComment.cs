@@ -2,6 +2,7 @@
 {
     public class ForumComment
     {
+        public int Id { get; set; }
         public int ForumId { get; set; }
         public int StudentId { get; set; }
         public Student Student { get; set; }
