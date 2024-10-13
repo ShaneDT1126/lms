@@ -27,7 +27,42 @@ namespace lms_backend.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // setting up many-to-many relationship
-            modelBuilder.Entity<>()
+
+            // Student - Course
+            modelBuilder.Entity<Enrollment>()
+                .HasKey(e => new { e.StudentId, e.CourseId });
+            modelBuilder.Entity<Enrollment>()
+                .HasOne(s => s.Student)
+                .WithMany(e => e.Enrollments)
+                .HasForeignKey(s => s.StudentId);
+            modelBuilder.Entity<Enrollment>()
+                .HasOne(c => c.Course)
+                .WithMany(e => e.Enrollments)
+                .HasForeignKey(c => c.CourseId);
+
+            // Student - Lesson
+            modelBuilder.Entity<LessonProgression>()
+                .HasKey(lp => new { lp.StudentId, lp.LessonId });
+            modelBuilder.Entity<LessonProgression>()
+                .HasOne(s => s.Student)
+                .WithMany(lp => lp.LessonProgressions)
+                .HasForeignKey(s => s.StudentId);
+            modelBuilder.Entity<LessonProgression>()
+                .HasOne(l => l.Lesson)
+                .WithMany(lp => lp.LessonProgressions)
+                .HasForeignKey(l => l.LessonId);
+
+            // Student - Quiz
+            modelBuilder.Entity<QuizManagement>()
+                .HasKey(qm => new { qm.StudentId, qm.QuizId});
+            modelBuilder.Entity<QuizManagement>()
+                .HasOne(s => s.Student)
+                .WithMany(qm => qm.QuizManagement)
+                .HasForeignKey(s => s.StudentId);
+            modelBuilder.Entity<QuizManagement>()
+                .HasOne(q => q.Quiz)
+                .WithMany(qm => qm.QuizManagements)
+                .HasForeignKey(q => q.QuizId);
         }
 
     }
