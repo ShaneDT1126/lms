@@ -2,6 +2,7 @@
 {
     public class QuizManagement
     {
+        public int Id { get; set; }
         public int QuizId { get; set; }
         public int StudentId { get; set; }
         public Quiz Quiz { get; set; }

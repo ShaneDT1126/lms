@@ -1,15 +1,9 @@
-﻿namespace lms_backend.Models
+﻿using lms_backend.Models.Base;
+
+namespace lms_backend.Models
 {
-    public class Teacher
+    public class Teacher : User
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public int Age { get; set; }
-        public DateOnly Birthdate { get; set; }
-        public string Email { get; set; } = string.Empty;
-        public string Username { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
         public List<Course> Courses { get; set; } = [];
         public List<Post> posts { get; set; } = [];
 
