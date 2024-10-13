@@ -1,4 +1,11 @@
+using DotNetEnv;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Connection string using .env
+Env.Load();
+var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+builder.Configuration["ConnectionStrings:DefaultConnection"] = connectionString;
 
 // Add services to the container.
 

@@ -1,6 +1,8 @@
 ﻿namespace lms_backend.Enums
 {
-    public class QuizTypeEnum
+    public enum QuizTypeEnum
     {
+        Identification = 0,
+        MultipleChoice = 1,
     }
 }
