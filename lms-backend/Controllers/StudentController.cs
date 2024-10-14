@@ -1,6 +1,8 @@
-﻿namespace lms_backend.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace lms_backend.Controllers
 {
-    public class Student
+    public class StudentController : ControllerBase
     {
     }
 }
