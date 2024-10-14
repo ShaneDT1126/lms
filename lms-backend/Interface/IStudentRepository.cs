@@ -1,6 +1,9 @@
-﻿namespace lms_backend.Interface
+﻿using lms_backend.Models;
+
+namespace lms_backend.Interface
 {
     public interface IStudentRepository
     {
+        ICollection<Student> GetAllStudents();
     }
 }
