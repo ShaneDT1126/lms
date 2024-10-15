@@ -1,6 +1,10 @@
-﻿namespace lms_backend.ServiceInterface
+﻿using lms_backend.DTOs;
+
+
+namespace lms_backend.ServiceInterface
 {
-    public class IStudentService
+    public interface IStudentService
     {
+        ICollection<StudentDto> GetAllStudents();
     }
 }
