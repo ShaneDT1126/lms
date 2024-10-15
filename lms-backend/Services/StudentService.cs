@@ -37,5 +37,29 @@ namespace lms_backend.Services
 
             return studentsDto;
         }
+
+        public StudentDto? GetStudentById(int id)
+        {
+            var student = _studentRepository.GetStudentById(id);
+
+            if (student == null)
+            {
+                return null;
+            }
+
+            var studentDto = new StudentDto
+            {
+                Id = student.Id,
+                FirstName = student!.FirstName,
+                LastName = student!.LastName,
+                Age = student!.Age,
+                Birthdate = student!.Birthdate,
+                Email = student!.Email,
+                Username = student!.Username,
+                Password = student!.Password
+            };
+
+            return studentDto;
+        }
     }
 }

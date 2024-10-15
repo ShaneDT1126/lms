@@ -6,5 +6,6 @@ namespace lms_backend.ServiceInterface
     public interface IStudentService
     {
         ICollection<StudentDto> GetAllStudents();
+        StudentDto? GetStudentById(int id);
     }
 }

@@ -25,5 +25,18 @@ namespace lms_backend.Controllers
 
             return Ok(students);
         }
+
+        [HttpGet("/student/{studentId}")]
+        public ActionResult GetStudentById(int studentId)
+        {
+            var student = _studentService.GetStudentById(studentId);
+
+            if (student == null)
+            {
+                return NotFound($"Student with id: {studentId} not found");
+            }
+
+            return Ok(student);
+        }
     }
 }
