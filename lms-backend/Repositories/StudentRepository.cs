@@ -17,5 +17,17 @@ namespace lms_backend.Repositories
         {
             return _context.Students.OrderBy(p => p.Id).ToList();
         }
+
+        public Student? GetStudentById(int id)
+        {
+            var student = _context.Students.FirstOrDefault(s => s.Id == id);
+
+            if (student == null)
+            {
+                return null;
+            }
+
+            return student;
+        }
     }
 }

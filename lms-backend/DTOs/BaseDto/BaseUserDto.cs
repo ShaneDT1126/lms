@@ -1,4 +1,4 @@
-﻿namespace lms_backend.DTOs
+﻿namespace lms_backend.DTOs.BaseDto
 {
     public class BaseUserDto
     {

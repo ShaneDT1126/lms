@@ -1,4 +1,5 @@
-﻿using lms_backend.Models;
+﻿using lms_backend.DTOs.BaseDto;
+using lms_backend.Models;
 
 namespace lms_backend.DTOs
 {

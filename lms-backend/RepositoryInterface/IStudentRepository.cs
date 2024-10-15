@@ -5,5 +5,6 @@ namespace lms_backend.Interface
     public interface IStudentRepository
     {
         ICollection<Student> GetAllStudents();
+        Student? GetStudentById(int id);
     }
 }
