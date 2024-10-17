@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace lms_backend.Controllers
 {
-    [Route("api")]
+    [Route("api/v1")]
     [ApiController]
     public class StudentController : ControllerBase
     {

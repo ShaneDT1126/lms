@@ -1,7 +1,10 @@
-﻿namespace lms_backend.RepositoryInterface
-{
-    public class ITeacherRepository
-    {
+﻿using lms_backend.Models;
 
+namespace lms_backend.Interface
+{
+    public interface ITeacherRepository
+    {
+        ICollection<Teacher> GetAllTeachers();
+        Teacher? GetTeacherById(int id);
     }
 }

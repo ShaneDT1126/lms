@@ -26,10 +26,17 @@ namespace lms_backend.Controllers
             return Ok(teachers);
         }
 
-        [HttpGet("/teacher/{id}")]
-        public ActionResult GetTeacherById(int id)
+        [HttpGet("/teacher/{teacherid}")]
+        public ActionResult GetTeacherById(int teacherid)
         {
+            var teacher = _service.GetTeacherById(teacherid);
 
+            if (teacher == null)
+            {
+                return NotFound($"Teacher with an id: {teacherid} not found");
+            }
+
+            return Ok(teacher);
         }
     }
 }

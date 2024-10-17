@@ -17,7 +17,9 @@ var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
 builder.Services.AddTransient<IStudentService, StudentService>();
+builder.Services.AddTransient<ITeacherService, TeacherService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

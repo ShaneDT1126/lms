@@ -49,7 +49,7 @@ namespace lms_backend.Services
 
             var studentDto = new StudentDto
             {
-                Id = student.Id,
+                Id = student!.Id,
                 FirstName = student!.FirstName,
                 LastName = student!.LastName,
                 Age = student!.Age,

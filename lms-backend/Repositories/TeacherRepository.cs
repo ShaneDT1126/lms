@@ -1,6 +1,7 @@
 ﻿using lms_backend.Data;
+using lms_backend.Interface;
 using lms_backend.Models;
-using lms_backend.RepositoryInterface;
+
 
 namespace lms_backend.Repositories
 {

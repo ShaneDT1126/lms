@@ -1,5 +1,5 @@
 ﻿using lms_backend.DTOs;
-using lms_backend.RepositoryInterface;
+using lms_backend.Interface;
 using lms_backend.ServiceInterface;
 
 namespace lms_backend.Services
@@ -38,16 +38,27 @@ namespace lms_backend.Services
             return teachersDto;
         }
 
-        public Models.Teacher? GetTeacherById(int id)
+        public TeacherDto? GetTeacherById(int id)
         {
-            var teacher = GetTeacherById(id);
+            var teacher = _repository.GetTeacherById(id);
 
             if (teacher == null)
             {
                 return null;
             }
 
-            return teacher;
+            var teacherDto = new TeacherDto
+            {
+                Id = teacher.Id,
+                FirstName = teacher.FirstName,
+                LastName = teacher.LastName,
+                Age = teacher.Age,
+                Birthdate = teacher.Birthdate,
+                Username = teacher.Username,
+                Password = teacher.Password
+            };
+
+            return teacherDto;
         }
     }
 }
