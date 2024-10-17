@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace lms_backend.Controllers
 {
-    [Route("api/v1")]
+    [Route("api/v1/students")]
     [ApiController]
     public class StudentController : ControllerBase
     {
@@ -13,7 +13,7 @@ namespace lms_backend.Controllers
             _studentService = studentService;
         }
 
-        [HttpGet("/students")]
+        [HttpGet]
         public ActionResult GetAllStudents()
         {
             var students = _studentService.GetAllStudents();
@@ -26,7 +26,7 @@ namespace lms_backend.Controllers
             return Ok(students);
         }
 
-        [HttpGet("/student/{studentId}")]
+        [HttpGet("/{studentId}")]
         public ActionResult GetStudentById(int studentId)
         {
             var student = _studentService.GetStudentById(studentId);
