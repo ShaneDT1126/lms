@@ -30,9 +30,7 @@ namespace lms_backend.Services
                 LastName = s.LastName,
                 Age = s.Age,
                 Birthdate = s.Birthdate,
-                Email = s.Email,
-                Username = s.Username,
-                Password = s.Password
+                Email = s.Email
             }).ToList();
 
             return studentsDto;
@@ -54,9 +52,7 @@ namespace lms_backend.Services
                 LastName = student!.LastName,
                 Age = student!.Age,
                 Birthdate = student!.Birthdate,
-                Email = student!.Email,
-                Username = student!.Username,
-                Password = student!.Password
+                Email = student!.Email
             };
 
             return studentDto;
