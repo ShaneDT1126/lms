@@ -26,7 +26,7 @@ namespace lms_backend.Controllers
             return Ok(teachers);
         }
 
-        [HttpGet("/{teacherid}")]
+        [HttpGet("{teacherid}")]
         public ActionResult GetTeacherById(int teacherid)
         {
             var teacher = _service.GetTeacherById(teacherid);

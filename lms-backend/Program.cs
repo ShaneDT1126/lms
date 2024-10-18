@@ -2,6 +2,7 @@ using DotNetEnv;
 using lms_backend.Data;
 using lms_backend.Interface;
 using lms_backend.Repositories;
+using lms_backend.RepositoryInterface;
 using lms_backend.ServiceInterface;
 using lms_backend.Services;
 using Microsoft.EntityFrameworkCore;
@@ -18,8 +19,10 @@ var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 builder.Services.AddControllers();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddTransient<IStudentService, StudentService>();
 builder.Services.AddTransient<ITeacherService, TeacherService>();
+builder.Services.AddTransient<ICourseService, CourseService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
