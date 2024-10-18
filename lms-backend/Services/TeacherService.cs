@@ -18,7 +18,7 @@ namespace lms_backend.Services
         {
             var teachers = _repository.GetAllTeachers();
 
-            if (teachers == null)
+            if (!teachers.Any())
             {
                 return null;
             }

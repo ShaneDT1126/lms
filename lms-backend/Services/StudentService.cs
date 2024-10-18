@@ -18,7 +18,7 @@ namespace lms_backend.Services
         {
             var students = _studentRepository.GetAllStudents();
 
-            if (students == null || !students.Any())
+            if (!students.Any())
             {
                 return null;
             }

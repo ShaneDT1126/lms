@@ -18,7 +18,7 @@ namespace lms_backend.Services
         {
             var courses = _courseRepository.GetAllCourses();
 
-            if (courses == null || !courses.Any())
+            if (!courses.Any())
             {
                 return null;
             }

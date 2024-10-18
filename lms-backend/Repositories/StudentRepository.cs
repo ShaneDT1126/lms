@@ -15,7 +15,14 @@ namespace lms_backend.Repositories
 
         public ICollection<Student> GetAllStudents()
         {
-            return _context.Students.OrderBy(p => p.Id).ToList();
+            var students = _context.Students.OrderBy(p => p.Id).ToList();
+
+            if (students == null)
+            {
+                return null;
+            }
+
+            return students;
         }
 
         public Student? GetStudentById(int id)
