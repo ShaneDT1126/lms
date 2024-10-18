@@ -21,7 +21,7 @@ namespace lms_backend.Controllers
 
             if (forums == null || !forums.Any())
             {
-                return NotFound("Forum not found!");
+                return NotFound("Forums not found!");
             }
 
             return Ok(forums);
