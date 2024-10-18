@@ -26,7 +26,7 @@ namespace lms_backend.Repositories
             return courses;
         }
 
-        public Course GetCourse(int id)
+        public Course GetCourseById(int id)
         {
             var course = _context.Courses.FirstOrDefault(c => c.Id == id);
 
