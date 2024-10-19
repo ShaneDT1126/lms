@@ -9,5 +9,6 @@ namespace lms_backend.DTOs
         public string Description { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
         public Teacher Teacher { get; set; }
+        public List<Lesson> Lessons { get; set; } = [];
     }
 }

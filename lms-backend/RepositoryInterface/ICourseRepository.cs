@@ -6,5 +6,6 @@ namespace lms_backend.RepositoryInterface
     {
         ICollection<Course> GetAllCourses();
         Course GetCourseById(int id);
+        ICollection<Lesson> GetAllLessonsByCourse(int courseId);
     }
 }
