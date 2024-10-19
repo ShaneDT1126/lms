@@ -30,7 +30,7 @@ namespace lms_backend.Repositories
         {
             var course = _dataContext.Courses.FirstOrDefault(c => c.Id == courseId);
 
-            if (course.Lessons == null)
+            if (course?.Lessons == null)    
             {
                 return null;
             }

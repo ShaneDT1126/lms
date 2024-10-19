@@ -15,7 +15,7 @@ namespace lms_backend.Services
         }
 
 
-        public ICollection<LessonDto> GetAllLessonByCourse(int courseId)
+        public ICollection<LessonDto>? GetAllLessonByCourse(int courseId)
         {
             var lessons = _repository.GetLessonByCourse(courseId);
 

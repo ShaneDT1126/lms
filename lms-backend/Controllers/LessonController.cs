@@ -14,7 +14,7 @@ namespace lms_backend.Controllers
             _lessonService = lessonService;
         }
 
-        [HttpGet("{courseId}")]
+        [HttpGet("courses/{courseId}")]
         public ActionResult GetAllLessonByCourse(int courseId) { 
             var lessons = _lessonService.GetAllLessonByCourse(courseId);
 
