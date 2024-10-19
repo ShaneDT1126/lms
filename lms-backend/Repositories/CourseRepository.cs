@@ -37,12 +37,5 @@ namespace lms_backend.Repositories
 
             return course;
         }
-
-        public ICollection<Lesson> GetAllLessonsByCourse(int courseId)
-        {
-            var lessons = _context.Courses.Where(c => c.Id == courseId).;
-
-         
-        }
     }
 }
