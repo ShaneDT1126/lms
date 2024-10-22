@@ -26,18 +26,5 @@ namespace lms_backend.Repositories
             return lesson;
         }
 
-        public ICollection<Lesson> GetLessonByCourse(int courseId)
-        {
-            var course = _dataContext.Courses.FirstOrDefault(c => c.Id == courseId);
-
-            if (course?.Lessons == null)    
-            {
-                return null;
-            }
-
-            var lessons = course.Lessons.ToList();
-
-            return lessons;
-        }
     }
 }
