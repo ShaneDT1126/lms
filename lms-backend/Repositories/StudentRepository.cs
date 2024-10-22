@@ -36,5 +36,24 @@ namespace lms_backend.Repositories
 
             return student;
         }
+
+        public ICollection<Enrollment> GetAllEnrollmentsByStudent(int studentId)
+        {
+            var student = _context.Students.FirstOrDefault(s => s.Id == studentId);
+
+            if (student == null)
+            {
+                return null;
+            }
+
+            var enrollments = student.Enrollments.ToList();
+
+            if (enrollments == null || !enrollments.Any())
+            {
+                return null;
+            }
+
+            return enrollments;
+        }
     }
 }
