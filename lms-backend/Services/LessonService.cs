@@ -14,29 +14,6 @@ namespace lms_backend.Services
             _repository = repository;
         }
 
-
-        public ICollection<LessonDto>? GetAllLessonByCourse(int courseId)
-        {
-            var lessons = _repository.GetLessonByCourse(courseId);
-
-            if (lessons == null || !lessons.Any())
-            {
-                return null;
-            }
-
-            var lessonsDto = lessons.Select(l => new LessonDto
-            {
-                Id = l.Id,
-                Name = l.Name,
-                Content = l.Content,
-                CreatedAt = l.CreatedAt,
-                Description = l.Description
-            }).ToList();
-
-            return lessonsDto;
-
-        }
-
         public Lesson GetLessonById(int id)
         {
             var lesson = _repository.GetLessonById(id);
