@@ -37,5 +37,43 @@ namespace lms_backend.Repositories
 
             return course;
         }
+
+        public ICollection<Enrollment> GetAllEnrollmentsByCourse(int courseId)
+        {
+            var course = _context.Courses.FirstOrDefault(c => c.Id == courseId);
+
+            if (course == null)
+            {
+                return null;
+            }
+
+            var enrollments = course.Enrollments.ToList();
+
+            if (enrollments == null || !enrollments.Any())
+            {
+                return null;
+            }
+
+            return enrollments;
+        }
+
+        public ICollection<Lesson> GetLessonByCourse(int courseId)
+        {
+            var course = _context.Courses.FirstOrDefault(c => c.Id == courseId);
+
+            if (course == null)
+            {
+                return null;
+            }
+
+            var lessons = course.Lessons.ToList();
+
+            if (lessons == null || !lessons.Any())
+            {
+                return null;
+            }
+
+            return lessons;
+        }
     }
 }
