@@ -14,7 +14,7 @@ namespace lms_backend.Services
             _studentRepository = studentRepository;
         }
 
-        public ICollection<StudentDto> GetAllStudents()
+        public ICollection<StudentDto>? GetAllStudents()
         {
             var students = _studentRepository.GetAllStudents();
 
@@ -56,6 +56,26 @@ namespace lms_backend.Services
             };
 
             return studentDto;
+        }
+
+        public ICollection<EnrollmentDto>? GetAllEnrollmentsByStudent(int studentId)
+        {
+            var studentEnrollments = _studentRepository.GetAllEnrollmentsByStudent(studentId);
+
+            if (studentEnrollments == null || !studentEnrollments.Any())
+            {
+                return null;
+            }
+
+            var enrollmentDto = studentEnrollments.Select(e => new EnrollmentDto
+            {
+                StudentId = e.StudentId,
+                CourseId = e.CourseId,
+                Student = e.Student,
+                Course = e.Course
+            }).ToList();
+
+            return enrollmentDto;
         }
     }
 }
