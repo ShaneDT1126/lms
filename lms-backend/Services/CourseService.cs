@@ -55,5 +55,46 @@ namespace lms_backend.Services
 
             return courseDto;
         }
+
+        public ICollection<LessonDto> GetAllLessonByCourse(int courseId)
+        {
+            var lessons = _courseRepository.GetAllLessonByCourse(courseId);
+
+            if (lessons == null || !lessons.Any())
+            {
+                return null;
+            }
+
+            var lessonDto = lessons.Select(l => new LessonDto
+            {
+                Id = l.Id,
+                Name = l.Name,
+                Description = l.Description,
+                CreatedAt = l.CreatedAt,
+                Content = l.Content
+            }).ToList();
+
+            return lessonDto;
+        }
+
+        public ICollection<EnrollmentDto> GetAllEnrollmentsByCourse(int courseId)
+        {
+            var enrollments = _courseRepository.GetAllEnrollmentsByCourse(courseId);
+
+            if (enrollments == null || !enrollments.Any())
+            {
+                return null;
+            }
+
+            var enrollmentDto = enrollments.Select(e => new EnrollmentDto
+            {
+                StudentId = e.StudentId,
+                CourseId = e.CourseId,
+                Course = e.Course,
+                Student = e.Student
+            }).ToList();
+
+            return enrollmentDto;
+        }
     }
 }

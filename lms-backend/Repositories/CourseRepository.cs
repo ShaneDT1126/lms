@@ -57,7 +57,7 @@ namespace lms_backend.Repositories
             return enrollments;
         }
 
-        public ICollection<Lesson> GetLessonByCourse(int courseId)
+        public ICollection<Lesson> GetAllLessonByCourse(int courseId)
         {
             var course = _context.Courses.FirstOrDefault(c => c.Id == courseId);
 
