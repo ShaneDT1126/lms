@@ -14,18 +14,6 @@ namespace lms_backend.Controllers
             _lessonService = lessonService;
         }
 
-        [HttpGet("courses/{courseId}")]
-        public ActionResult GetAllLessonByCourse(int courseId) { 
-            var lessons = _lessonService.GetAllLessonByCourse(courseId);
-
-            if (lessons == null)
-            {
-                return NotFound($"No Lessons Found in Course: {courseId}!");
-            }
-
-            return Ok(lessons);
-        }
-
         [HttpGet("{id}")]
         public ActionResult GetLessonById(int id)
         {

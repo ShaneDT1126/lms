@@ -41,6 +41,32 @@ namespace lms_backend.Controllers
             return Ok(course);
         }
 
+        [HttpGet("enrollments/{courseId}")]
+        public ActionResult GetAllEnrollmentsByCourse(int courseId)
+        {
+            var enrollments = _courseService.GetAllEnrollmentsByCourse(courseId);
+
+            if (enrollments == null)
+            {
+                return NotFound($"No enrolled students found in CourseId: {courseId}!");
+            }
+
+            return Ok(enrollments);
+        }
+
+        [HttpGet("lessons/{courseId}")]
+        public ActionResult GetAllLessonsByCourse(int courseId)
+        {
+            var lessons = _courseService.GetAllLessonByCourse(courseId);
+
+            if (lessons == null)
+            {
+                return NotFound($"No lessons found in CourseId: {courseId}");
+            }
+
+            return Ok(lessons);
+        }
+
 
     }
 }

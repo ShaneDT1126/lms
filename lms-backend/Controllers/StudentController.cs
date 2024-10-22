@@ -38,5 +38,18 @@ namespace lms_backend.Controllers
 
             return Ok(student);
         }
+
+        [HttpGet("enrollments/{studentId}")]
+        public ActionResult GetAllEnrollmentsByStudent(int studentId)
+        {
+            var enrollments = _studentService.GetAllEnrollmentsByStudent(studentId);
+
+            if (enrollments == null)
+            {
+                return NotFound("No enrollments found!");
+            }
+
+            return Ok(enrollments);
+        }
     }
 }
