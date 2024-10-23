@@ -6,5 +6,7 @@ namespace lms_backend.RepositoryInterface
     {
         ICollection<Forum> GetAllForums();
         Forum GetForumById(int id);
+
+        ICollection<ForumComment> GetAllForumCommentsByForum(int forumId);
     }
 }

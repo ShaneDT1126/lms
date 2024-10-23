@@ -2,7 +2,7 @@
 
 namespace lms_backend.DTOs
 {
-    public class ForumCommentsDto
+    public class ForumCommentDto
     {
         public int Id { get; set; }
         public int ForumId { get; set; }
