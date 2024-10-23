@@ -37,5 +37,19 @@ namespace lms_backend.Repositories
 
             return forum;
         }
+
+        public ICollection<ForumComment> GetAllForumCommentsByForum(int forumId)
+        {
+            var forum = _dataContext.Forums.SingleOrDefault(f => f.Id == forumId);
+
+            if (forum?.ForumComments == null || forum?.ForumComments.Count() < 0)
+            {
+                return null;
+            }
+
+            var comments = forum.ForumComments.ToList();
+
+            return comments;
+        }
     }
 }
