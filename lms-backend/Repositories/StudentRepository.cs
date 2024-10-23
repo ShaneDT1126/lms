@@ -55,5 +55,19 @@ namespace lms_backend.Repositories
 
             return enrollments;
         }
+
+        public ICollection<ForumComment> GetAllForumCommentsByStudent(int studentId)
+        {
+            var student = _context.Students.SingleOrDefault(s => s.Id == studentId);
+
+            if (student.ForumComments == null || !student.ForumComments.Any())
+            {
+                return null;
+            }
+
+            var comments = student.ForumComments.ToList();
+
+            return comments;
+        }
     }
 }
