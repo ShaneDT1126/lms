@@ -8,5 +8,6 @@ namespace lms_backend.ServiceInterface
         ICollection<StudentDto> GetAllStudents();
         StudentDto? GetStudentById(int id);
         ICollection<EnrollmentDto> GetAllEnrollmentsByStudent(int studentId);
+        ICollection<ForumCommentDto> GetAllForumCommentByStudent(int studentId);
     }
 }

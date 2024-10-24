@@ -6,5 +6,7 @@ namespace lms_backend.ServiceInterface
     {
         ICollection<ForumDto> GetAllForums();
         ForumDto GetForumById(int id);
+
+        ICollection<ForumCommentDto> GetAllCommentByForum(int forumId);
     }
 }
