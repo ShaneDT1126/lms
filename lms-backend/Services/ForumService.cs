@@ -54,5 +54,27 @@ namespace lms_backend.Services
 
             return forumDto;
         }
+
+        public ICollection<ForumCommentDto>? GetAllCommentByForum(int forumId)
+        {
+            var forumComment = _forumRepository.GetAllForumCommentsByForum(forumId);
+
+            if (forumComment == null || !forumComment.Any())
+            {
+                return null;
+            }
+
+            var forumCommentDto = forumComment.Select(c => new ForumCommentDto
+            {
+                Id = c.Id,
+                ForumId = c.ForumId,
+                StudentId = c.StudentId,
+                Forum = c.Forum,
+                Student = c.Student,
+                Comment = c.Comment
+            }).ToList();
+
+            return forumCommentDto;
+        }
     }
 }
