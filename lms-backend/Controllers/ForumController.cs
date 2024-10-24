@@ -39,5 +39,18 @@ namespace lms_backend.Controllers
 
             return Ok(forum);
         }
+
+        [HttpGet("forumcomments/{forumId}")]
+        public ActionResult GetAllForumCommentByForum(int forumId)
+        {
+            var comments = _forumService.GetAllCommentByForum(forumId);
+
+            if (comments == null || !comments.Any())
+            {
+                return NotFound($"No comments found in Forum id: {forumId}!");
+            }
+
+            return Ok(comments);
+        }
     }
 }

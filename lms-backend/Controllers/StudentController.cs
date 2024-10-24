@@ -51,5 +51,18 @@ namespace lms_backend.Controllers
 
             return Ok(enrollments);
         }
+
+        [HttpGet("forumcomments/{studentId}")]
+        public ActionResult GetAllForumCommentsByStudent(int studentId)
+        {
+            var forumComments = _studentService.GetAllForumCommentByStudent(studentId);
+
+            if (forumComments == null)
+            {
+                return NotFound($"Student Id: {studentId} has no comments found!");
+            }
+
+            return Ok(forumComments);
+        }
     }
 }
