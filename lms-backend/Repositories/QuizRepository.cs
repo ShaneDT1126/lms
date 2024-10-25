@@ -4,11 +4,11 @@ using lms_backend.RepositoryInterface;
 
 namespace lms_backend.Repositories
 {
-    public class QuizzRepository : IQuizRepository
+    public class QuizRepository : IQuizRepository
     {
         private readonly DataContext _dataContext;
 
-        public QuizzRepository(DataContext dataContext)
+        public QuizRepository(DataContext dataContext)
         {
             _dataContext = dataContext;
         }
