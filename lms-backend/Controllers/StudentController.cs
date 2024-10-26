@@ -64,5 +64,18 @@ namespace lms_backend.Controllers
 
             return Ok(forumComments);
         }
+
+        [HttpGet("quizmanagements/{studentId}")]
+        public ActionResult GetAllQuizManagementByStudent(int studentId)
+        {
+            var quizManagement = _studentService.GetAllQuizManagementByStudent(studentId);
+
+            if (quizManagement == null)
+            {
+                return NotFound($"Quiz Stat by student Id: {studentId} not found!");
+            }
+
+            return Ok(quizManagement);
+        }
     }
 }
