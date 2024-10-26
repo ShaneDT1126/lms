@@ -99,5 +99,26 @@ namespace lms_backend.Services
 
             return studentCommentsDto;
         }
+
+        public ICollection<QuizManagementDto> GetAllQuizManagementByStudent(int studentId)
+        {
+            var quizManagement = GetAllQuizManagementByStudent(studentId);
+
+            if (quizManagement == null || !quizManagement.Any())
+            {
+                return null;
+            }
+
+            var quizManagementDto = quizManagement.Select(q => new QuizManagementDto
+            {
+                StudentId = q.StudentId,
+                QuizId = q.QuizId,
+                Student = q.Student,
+                Quiz = q.Quiz,
+                Score = q.Score
+            }).ToList();
+
+            return quizManagementDto;
+        }
     }
 }
