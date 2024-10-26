@@ -6,5 +6,6 @@ namespace lms_backend.ServiceInterface
     {
         ICollection<QuizDto> GetAllQuiz();
         QuizDto GetQuizById(int id);
+        ICollection<QuizManagementDto> GetAllQuizManagementByQuiz(int quizId);
     }
 }
