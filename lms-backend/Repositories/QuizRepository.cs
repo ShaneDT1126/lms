@@ -37,5 +37,24 @@ namespace lms_backend.Repositories
 
             return quiz;
         }
+
+        public ICollection<QuizManagement> GetAllQuizManagementByQuiz(int quizId)
+        {
+            var quiz = _dataContext.Quiz.FirstOrDefault(q => q.Id == quizId);
+
+            if (quiz == null)
+            {
+                return null;
+            }
+
+            var quizManagement = quiz.QuizManagements.ToList();
+
+            if (quizManagement == null || quizManagement.Count == 0)
+            {
+                return null;
+            }
+
+            return quizManagement;
+        }
     }
 }
