@@ -69,5 +69,24 @@ namespace lms_backend.Repositories
 
             return comments;
         }
+
+        public ICollection<QuizManagement> GetAllQuizManagementByStudent(int studentId)
+        {
+            var student = _context.Students.SingleOrDefault(s => s.Id == studentId);
+
+            if (student == null)
+            {
+                return null;
+            }
+
+            var quizManagement = student.QuizManagement.ToList();
+
+            if (quizManagement == null || !quizManagement.Any())
+            {
+                return null;
+            }
+
+            return quizManagement;
+        }
     }
 }
