@@ -39,5 +39,18 @@ namespace lms_backend.Controllers
 
             return Ok(quiz);
         }
+
+        [HttpGet("quizmanagement/{quizId}")]
+        public ActionResult GetQuizManagementByQuiz(int quizId)
+        {
+            var quizManagement = _quizService.GetAllQuizManagementByQuiz(quizId);
+
+            if (quizManagement == null)
+            {
+                return NotFound($"Quiz management of quiz id {quizId} not found!");
+            }
+
+            return Ok(quizManagement);
+        }
     }
 }
