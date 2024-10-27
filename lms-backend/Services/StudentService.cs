@@ -100,7 +100,7 @@ namespace lms_backend.Services
             return studentCommentsDto;
         }
 
-        public ICollection<QuizManagementDto> GetAllQuizManagementByStudent(int studentId)
+        public ICollection<QuizManagementDto>? GetAllQuizManagementByStudent(int studentId)
         {
             var quizManagement = GetAllQuizManagementByStudent(studentId);
 
