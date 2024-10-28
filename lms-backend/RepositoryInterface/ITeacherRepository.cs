@@ -6,5 +6,7 @@ namespace lms_backend.Interface
     {
         ICollection<Teacher> GetAllTeachers();
         Teacher? GetTeacherById(int id);
+
+        ICollection<Course>? GetAllCoursesByTeacher(int teacherId);
     }
 }
