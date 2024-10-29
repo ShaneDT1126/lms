@@ -1,4 +1,5 @@
 ﻿using lms_backend.DTOs;
+using lms_backend.Enums;
 using lms_backend.Interface;
 using lms_backend.Models;
 using lms_backend.ServiceInterface;
@@ -119,6 +120,27 @@ namespace lms_backend.Services
             }).ToList();
 
             return quizManagementDto;
+        }
+
+        public ICollection<LessonProgressionDto>? GetAllLessonProgressionByStudent(int studentId)
+        {
+            var studentLessonProgression = _studentRepository.GetAllLessonProgressionByStudent(studentId);
+
+            if (!studentLessonProgression.Any())
+            {
+                return null;
+            }
+
+            var studentLessonProgressionDto = studentLessonProgression.Select(s => new LessonProgressionDto
+            {
+                StudentId = s.StudentId,
+                LessonId = s.LessonId,
+                Student = s.Student,
+                Lesson = s.Lesson,
+                Status = s.Status
+            }).ToList();
+
+            return studentLessonProgressionDto;
         }
     }
 }
