@@ -60,7 +60,7 @@ namespace lms_backend.Services
 
         public ICollection<CourseDto>? GetAllCoursesByTeacher(int teacherId)
         {
-            var courses = GetAllCoursesByTeacher(teacherId);
+            var courses = _repository.GetAllCoursesByTeacher(teacherId);
 
             if (courses == null || !courses.Any())
             {

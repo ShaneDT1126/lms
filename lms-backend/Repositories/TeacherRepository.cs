@@ -49,7 +49,7 @@ namespace lms_backend.Repositories
 
             var teacherCourses = teacher.Courses.ToList();
 
-            if (!teacherCourses.Any())
+            if (!teacherCourses.Any() || teacherCourses.Count() == 0)
             {
                 return null;
             }

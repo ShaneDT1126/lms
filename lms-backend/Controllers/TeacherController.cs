@@ -38,5 +38,18 @@ namespace lms_backend.Controllers
 
             return Ok(teacher);
         }
+
+        [HttpGet("courses/{teacherId}")]
+        public ActionResult GetAllCoursesByTeacher(int teacherId)
+        {
+            var courses = _service.GetAllCoursesByTeacher(teacherId);
+
+            if (courses == null)
+            {
+                return NotFound($"Teacher with an id: {teacherId} has no available courses!");
+            }
+
+            return Ok(courses);
+        }
     }
 }
