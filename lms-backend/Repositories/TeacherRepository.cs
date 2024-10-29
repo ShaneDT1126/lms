@@ -37,5 +37,24 @@ namespace lms_backend.Repositories
 
             return teacher;
         }
+
+        public ICollection<Course>? GetAllCoursesByTeacher(int teacherId)
+        {
+            var teacher = _dataContext.Teachers.FirstOrDefault(t => t.Id == teacherId);
+
+            if (teacher == null)
+            {
+                return null;
+            }
+
+            var teacherCourses = teacher.Courses.ToList();
+
+            if (!teacherCourses.Any())
+            {
+                return null;
+            }
+
+            return teacherCourses;
+        }
     }
 }
