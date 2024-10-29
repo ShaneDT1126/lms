@@ -88,5 +88,24 @@ namespace lms_backend.Repositories
 
             return quizManagement;
         }
+
+        public ICollection<LessonProgression>? GetAllLessonProgressionByStudent(int studentId)
+        {
+            var student = _context.Students.SingleOrDefault(s => s.Id == studentId);
+
+            if (student == null)
+            {
+                return null;
+            }
+
+            var studentLessonProgression = student.LessonProgressions.ToList();
+
+            if (!studentLessonProgression.Any())
+            {
+                return null;
+            }
+
+            return studentLessonProgression;
+        }
     }
 }
