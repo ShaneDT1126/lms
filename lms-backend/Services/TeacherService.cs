@@ -57,5 +57,27 @@ namespace lms_backend.Services
 
             return teacherDto;
         }
+
+        public ICollection<CourseDto>? GetAllCoursesByTeacher(int teacherId)
+        {
+            var courses = GetAllCoursesByTeacher(teacherId);
+
+            if (courses == null || !courses.Any())
+            {
+                return null;
+            }
+
+            var coursesDto = courses.Select(c => new CourseDto
+            {
+                Id = c.Id,
+                Name = c.Name,
+                Description = c.Description,
+                Teacher = c.Teacher,
+                CreatedAt = c.CreatedAt,
+                Lessons = c.Lessons
+            }).ToList();
+
+            return coursesDto;
+        }
     }
 }
