@@ -77,5 +77,18 @@ namespace lms_backend.Controllers
 
             return Ok(quizManagement);
         }
+
+        [HttpGet("lessonprogressions/{studentId}")]
+        public ActionResult GetAllLessonProgressionByStudent(int studentId)
+        {
+            var studentLessonProgression = _studentService.GetAllLessonProgressionByStudent(studentId);
+
+            if (studentLessonProgression == null)
+            {
+                return NotFound($"Student with an Id: {studentId} did not start a lesson yet");
+            }
+
+            return Ok(studentLessonProgression);
+        }
     }
 }

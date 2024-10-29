@@ -103,7 +103,7 @@ namespace lms_backend.Services
 
         public ICollection<QuizManagementDto>? GetAllQuizManagementByStudent(int studentId)
         {
-            var quizManagement = GetAllQuizManagementByStudent(studentId);
+            var quizManagement = _studentRepository.GetAllQuizManagementByStudent(studentId);
 
             if (quizManagement == null || !quizManagement.Any())
             {
@@ -126,7 +126,7 @@ namespace lms_backend.Services
         {
             var studentLessonProgression = _studentRepository.GetAllLessonProgressionByStudent(studentId);
 
-            if (!studentLessonProgression.Any())
+            if (studentLessonProgression == null || !studentLessonProgression.Any())
             {
                 return null;
             }
