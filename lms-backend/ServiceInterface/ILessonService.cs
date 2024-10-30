@@ -5,6 +5,9 @@ namespace lms_backend.ServiceInterface
 {
     public interface ILessonService
     {
-        Lesson GetLessonById(int id);
+        LessonDto GetLessonById(int id);
+        ICollection<LessonDto> GetAllLessons();
+        ICollection<LessonProgressionDto> GetAllLessonProgressionsByLesson(int lessonId);
+
     }
 }
