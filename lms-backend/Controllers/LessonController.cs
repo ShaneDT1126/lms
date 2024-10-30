@@ -26,5 +26,29 @@ namespace lms_backend.Controllers
 
             return Ok(lesson);
         }
+        [HttpGet]
+        public ActionResult GetAllLessons()
+        {
+            var lessons = _lessonService.GetAllLessons();
+
+            if (lessons == null)
+            {
+                return NotFound("No lessons found!");
+            }
+
+            return Ok(lessons);
+        }
+
+        public ActionResult GetAllLessonProgressionsByLesson(int lessonId)
+        {
+            var lessonProgressions = _lessonService.GetAllLessonProgressionsByLesson(lessonId);
+
+            if (lessonProgressions == null)
+            {
+                return NotFound($"Lesson with an id {lessonId} don't have student lesson progressions!");
+            }
+
+            return Ok(lessonProgressions);
+        }
     }
 }
