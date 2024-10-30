@@ -38,7 +38,7 @@ namespace lms_backend.Controllers
 
             return Ok(lessons);
         }
-
+        [HttpGet("lessonprogressions/{lessonId}")]
         public ActionResult GetAllLessonProgressionsByLesson(int lessonId)
         {
             var lessonProgressions = _lessonService.GetAllLessonProgressionsByLesson(lessonId);
