@@ -25,6 +25,7 @@ builder.Services.AddScoped<ILessonRepository, LessonRepository>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<IForumCommentRepository, ForumCommentRepository>();
 builder.Services.AddScoped<IQuizRepository, QuizRepository>();
+builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
 
 builder.Services.AddTransient<IStudentService, StudentService>();
 builder.Services.AddTransient<ITeacherService, TeacherService>();
@@ -34,6 +35,7 @@ builder.Services.AddTransient<ILessonService, LessonService>();
 builder.Services.AddTransient<IPostService, PostService>();
 builder.Services.AddTransient<IForumCommentService, ForumCommentService>();
 builder.Services.AddTransient<IQuizService, QuizService>();
+builder.Services.AddTransient<IQuestionRepository, QuestionRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
