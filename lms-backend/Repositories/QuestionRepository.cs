@@ -18,7 +18,7 @@ namespace lms_backend.Repositories
         {
             var questions = _context.Question.OrderBy(q => q.Id).ToList();
 
-            if (questions.Count > 0 || questions == null)
+            if (questions == null || !questions.Any())
             {
                 return null;
             }
