@@ -35,7 +35,7 @@ builder.Services.AddTransient<ILessonService, LessonService>();
 builder.Services.AddTransient<IPostService, PostService>();
 builder.Services.AddTransient<IForumCommentService, ForumCommentService>();
 builder.Services.AddTransient<IQuizService, QuizService>();
-builder.Services.AddTransient<IQuestionRepository, QuestionRepository>();
+builder.Services.AddTransient<IQuestionService, QuestionService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
