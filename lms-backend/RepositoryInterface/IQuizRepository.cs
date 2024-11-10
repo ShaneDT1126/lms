@@ -6,7 +6,7 @@ namespace lms_backend.RepositoryInterface
     {
         ICollection<Quiz> GetAllQuiz();
         Quiz GetQuizById(int id);
-
         ICollection<QuizManagement> GetAllQuizManagementByQuiz(int quizId);
+        ICollection<Question> GetAllQuestionByQuiz(int quizId);
     }
 }
