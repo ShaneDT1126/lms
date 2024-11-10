@@ -80,5 +80,26 @@ namespace lms_backend.Services
 
             return quizManagementDto;
         }
+
+        public ICollection<QuestionDto> GetAllQuestionByQuiz(int quizId)
+        {
+            var quizQuestions = _quizRepository.GetAllQuestionByQuiz(quizId);
+
+            if (quizQuestions == null || !quizQuestions.Any())
+            {
+                return null;
+            }
+
+            var questionDto = quizQuestions.Select(q => new QuestionDto
+            {
+                Id = q.Id,
+                Title = q.Title,
+                Choices = q.Choices,
+                StudentAnswer = q.StudentAnswer,
+                CorrectAnswer = q.CorrectAnswer
+            }).ToList();
+
+            return questionDto;
+        }
     }
 }
